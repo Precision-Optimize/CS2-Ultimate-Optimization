@@ -24,6 +24,7 @@ Our website https://precisioncompany.xyz
 6. **Network Optimizations**: Configures TCP/IP settings for lower latency and better connection stability.
 7. **Set High-Performance Power Plan**: Switches your system to a high-performance power plan.
 8. **Audio Latency Enhancements**: Reduces audio latency for better in-game sound responsiveness.
+   MORE FEATURES SOON, FEEL FREE TO CONTRIBUTE TO PROJECT.
 
 ---
 
@@ -36,7 +37,7 @@ Our website https://precisioncompany.xyz
 
 ## Installation
 
-1. Download the `CS2_Ultimate_Optimization.bat` file.
+1. Download the `CS2 Ultimate Optimization.exe` file from release.
 2. Save it in a directory of your choice.
 
 ---
@@ -45,6 +46,7 @@ Our website https://precisioncompany.xyz
 
 1. **Run the Script**:
    - Right-click the `CS2_Ultimate_Optimization.bat` file and select **Run as Administrator**.
+   - Or download the `CS2 Ultimate Optimization.exe` file from release, you don't have to run as administrator by yourself.
 
 2. **Follow Instructions**:
    - The script will guide you through each step of the optimization process.
@@ -75,5 +77,6 @@ Our website https://precisioncompany.xyz
 ## License
 
 This script is provided as-is and is free to use and modify. Use it at your own risk. The author is not responsible for any damage caused to your system.
+You can request an contribution.
 
 ---
