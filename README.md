@@ -6,6 +6,14 @@ The **CS2 Ultimate Optimization Script** is designed to optimize your system for
 
 ---
 
+## Support Us
+We offer premium PC and game optimization on our discord!
+
+Join discord https://dc.gg/precisionoptimize
+Our website https://precisioncompany.xyz
+
+---
+
 ## Features
 
 1. **Terminate CS2 Process**: Ensures the game is closed before optimization begins.
