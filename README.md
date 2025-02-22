@@ -1,5 +1,15 @@
 # CS2 Ultimate Optimization Script - 2025
 
+## Changelogs
+
+# v1.0.1
+- Added error checking to ensure commands execute correctly.
+- Reduced redundant operations and improved logic flow.
+- Enhanced network optimizations with more TCP tweaks.
+- Ensured admin rights check at the start to avoid permission issues.
+- Improved GPU assignment method for better compatibility.
+- Added logging to help diagnose issues if needed.
+
 ## Overview
 
 The **CS2 Ultimate Optimization Script** is designed to optimize your system for running **Counter-Strike 2 (CS2)** at peak performance. This script cleans up unnecessary files, configures system settings, and applies network and GPU optimizations to improve gameplay performance and reduce latency.
