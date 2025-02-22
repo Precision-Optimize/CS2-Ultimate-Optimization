@@ -2,7 +2,7 @@
 
 ## Changelogs
 
-# v1.0.1
+# v1.0.1 - 23/02/2025
 - Added error checking to ensure commands execute correctly.
 - Reduced redundant operations and improved logic flow.
 - Enhanced network optimizations with more TCP tweaks.
