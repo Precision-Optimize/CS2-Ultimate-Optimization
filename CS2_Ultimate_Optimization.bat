@@ -1,24 +1,31 @@
 @echo off
+:: Ensure script is run as administrator
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo This script must be run as administrator!
+    pause
+    exit /b
+)
+
 title CS2 Ultimate Optimization Script - 2025
+setlocal enableextensions
+
 echo =====================================================
 echo       Counter-Strike 2 Ultimate Optimization Script
 echo =====================================================
-echo This script will optimize system settings, clean
-echo caches, improve network latency, boost GPU performance,
-echo and enhance CS2 gameplay.
+echo Optimizing system settings, cleaning caches,
+echo improving network latency, boosting GPU performance,
+echo and enhancing CS2 gameplay.
 echo Script made by Psycho006
 echo https://precisioncompany.xyz
 echo =====================================================
 pause
 
 :: Kill CS2 if running
-tasklist | find /i "cs2.exe" >nul
-if %errorlevel%==0 (
+tasklist | find /i "cs2.exe" >nul && (
     echo Closing CS2 process...
     taskkill /f /im cs2.exe
-) else (
-    echo CS2 is not running.
-)
+) || echo CS2 is not running.
 
 echo =====================================================
 echo Step 1: Cleaning temporary and system files...
@@ -27,22 +34,23 @@ echo =====================================================
 set "CS2_DIR=%userprofile%\AppData\Local\CounterStrike2"
 if exist "%CS2_DIR%" (
     del /q /s "%CS2_DIR%\*.tmp" 2>nul
-    del /q /s "%CS2_DIR%\cache" 2>nul
+    rd /s /q "%CS2_DIR%\cache" 2>nul
     echo CS2 temporary files cleaned.
 ) else (
     echo No CS2 temporary files found.
 )
 
-del /s /q "%temp%\*" 2>nul
-del /s /q "C:\Windows\Prefetch\*" 2>nul
+del /s /q "%temp%\*" 2>nul & rd /s /q "%temp%" 2>nul
+rd /s /q "C:\Windows\Prefetch" 2>nul
 ipconfig /flushdns
+
 echo System temporary files, DNS cache, and prefetch cleaned.
 
 :: Remove NVIDIA Shader Caches
-set DX_CACHE=%LocalAppData%\NVIDIA\DXCache
-set VK_CACHE=%LocalAppData%\NVIDIA\GLCache
-if exist "%DX_CACHE%" del /s /q "%DX_CACHE%"
-if exist "%VK_CACHE%" del /s /q "%VK_CACHE%"
+set "DX_CACHE=%LocalAppData%\NVIDIA\DXCache"
+set "VK_CACHE=%LocalAppData%\NVIDIA\GLCache"
+if exist "%DX_CACHE%" rd /s /q "%DX_CACHE%"
+if exist "%VK_CACHE%" rd /s /q "%VK_CACHE%"
 echo NVIDIA shader caches cleared.
 
 echo =====================================================
@@ -51,24 +59,25 @@ echo =====================================================
 :: Disable Xbox Game Bar and unnecessary services
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f
 reg add "HKCU\System\GameConfigStore" /v GameDVR_Enabled /t REG_DWORD /d 0 /f
-sc config "WaaSMedicSvc" start=disabled
-sc stop "WaaSMedicSvc"
+sc config "WaaSMedicSvc" start=disabled & sc stop "WaaSMedicSvc"
 echo Unnecessary services and Xbox Game Bar disabled.
 
 echo =====================================================
 echo Step 3: Setting High-Performance GPU...
 echo =====================================================
-:: Assign CS2 to use high-performance GPU
-powershell -Command "Add-HighPerformanceProcess -Name 'cs2.exe'"
+:: Assign CS2 to use high-performance GPU (Updated for better compatibility)
+powershell -Command "Start-Process -Verb runAs 'cmd' -ArgumentList '/c reg add \"HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Application Preference\cs2.exe\" /v \"GpuPreference\" /t REG_DWORD /d 2 /f'"
 echo High-Performance GPU set for CS2.
 
 echo =====================================================
 echo Step 4: Network optimizations for low latency...
 echo =====================================================
-:: Set network parameters for gaming optimization
-netsh int tcp set global autotuninglevel=normal
+:: Advanced network tweaks for gaming optimization
+netsh int tcp set global autotuninglevel=disabled
 netsh int tcp set global rss=enabled
-netsh interface tcp set heuristics disabled
+netsh int tcp set global timestamps=disabled
+netsh int tcp set global ecncapability=disabled
+netsh int tcp set global initialRto=2000
 netsh int ip set global taskoffload=enabled
 netsh advfirewall set allprofiles state off
 echo Network optimizations applied successfully.
