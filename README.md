@@ -2,6 +2,13 @@
 
 ## Changelogs
 
+# v1.0.2 - 16/04/2025
+- Better structure & readability
+- Enhanced administrator check
+- Power plan fix using GUID fallback
+- Improved NVIDIA shader cache removal
+- CS2 path detection flexibility
+
 # v1.0.1 - 23/02/2025
 - Added error checking to ensure commands execute correctly.
 - Reduced redundant operations and improved logic flow.
