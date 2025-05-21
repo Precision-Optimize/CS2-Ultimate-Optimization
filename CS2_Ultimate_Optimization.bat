@@ -1,36 +1,3 @@
-::[Bat To Exe Converter]
-::
-::YAwzoRdxOk+EWAjk
-::fBw5plQjdCuDJHeh32twDjp+YCu0FVeKFLAf4fvy4OTHkUgPQus8fZzn6JGiBcEgz2HYVqV/llVKjMIBBQFZahukYE8ApmFOinaEMfjP5V/5GR7Z2RtnTlpguGXRiio9Yexrm5dXgCbqqxWp0awT3hg=
-::YAwzuBVtJxjWCl3EqQJgSA==
-::ZR4luwNxJguZRRnk
-::Yhs/ulQjdF+5
-::cxAkpRVqdFKZSjk=
-::cBs/ulQjdF+5
-::ZR41oxFsdFKZSDk=
-::eBoioBt6dFKZSDk=
-::cRo6pxp7LAbNWATEpCI=
-::egkzugNsPRvcWATEpCI=
-::dAsiuh18IRvcCxnZtBJQ
-::cRYluBh/LU+EWAnk
-::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZko0
-::ZQ05rAF9IBncCkqN+0xwdVsFAlXi
-::ZQ05rAF9IAHYFVzEqQITG0kUeQiWNWa7ErBcx/jv5ueOuEwJXe0xGA==
-::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
-::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
-::cRolqwZ3JBvQF1fEqQJQ
-::dhA7uBVwLU+EWGmW8UE5OxJbQieNMXu7CKx8
-::YQ03rBFzNR3SWATElA==
-::dhAmsQZ3MwfNWATElA==
-::ZQ0/vhVqMQ3MEVWAtB9wSA==
-::Zg8zqx1/OA3MEVWAtB9wSA==
-::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFBEBQQWQAES0A5EO4f7+086CsUYJW/IDW7yJmoGCNOke61HhNbk9wnNXkdEJHlVdZhfL
-::YB416Ek+ZG8=
-::
-::
-::978f952a14a936cc963da21a135fa983
 @echo off
 :: Batch file: CS2 Ultimate Optimizer
 :: Author: Psycho006 - 2025
