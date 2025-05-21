@@ -1,19 +1,52 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCuDJHeh32twDjp+YCu0FVeKFLAf4fvy4OTHkUgPQus8fZzn6JGiBcEgz2HYVqV/llVKjMIBBQFZahukYE8ApmFOinaEMfjP5V/5GR7Z2RtnTlpguGXRiio9Yexrm5dXgCbqqxWp0awT3hg=
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRnk
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSjk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpCI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQJhZko0
+::ZQ05rAF9IBncCkqN+0xwdVsFAlXi
+::ZQ05rAF9IAHYFVzEqQITG0kUeQiWNWa7ErBcx/jv5ueOuEwJXe0xGA==
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWGmW8UE5OxJbQieNMXu7CKx8
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATElA==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFBEBQQWQAES0A5EO4f7+086CsUYJW/IDW7yJmoGCNOke61HhNbk9wnNXkdEJHlVdZhfL
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
 @echo off
+:: Batch file: CS2 Ultimate Optimizer
+:: Author: Psycho006 - 2025
+:: Purpose: Optimize system settings for CS2 performance
+
 setlocal enabledelayedexpansion
 
-:: ================================
-:: == CS2 Ultimate Optimizer ==
-:: == Made by Psycho006 - 2025 ==
-:: ================================
-
-:: Set title
+:: Title
 title CS2 Ultimate Optimization Script - 2025
 
 :: Check admin rights
 >nul 2>&1 net session || (
     echo This script must be run as Administrator!
+    echo Right-click > Run as administrator.
     pause
-    exit /b
+    exit
 )
 
 :: Create logs folder
@@ -48,9 +81,11 @@ if defined cs2Path (
 )
 echo.
 echo =====================================================
-pause
+echo.
+echo Press any key to continue...
+pause >nul
 
-:: Menu Options
+:: Main Menu
 :start
 cls
 echo [CS2 Optimizer]
@@ -65,15 +100,12 @@ echo 7. Launch CS2 Directly
 echo 8. Exit
 echo.
 
-echo Select an option using number keys (1-8):
-echo Press corresponding key now...
-
-:: Use PowerShell for safe key input
+echo Select an option (1-8):
 powershell -Command "$key = $host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown'); [int]([char]$key.Character) - 48" > "%temp%\key.txt"
 set /p userChoice=<"%temp%\key.txt"
 del /q "%temp%\key.txt" >nul 2>&1
 
-if "%userChoice%"=="" (
+if not defined userChoice (
     echo Invalid input. Please try again.
     timeout /t 2 >nul
     goto start
@@ -86,7 +118,14 @@ if %userChoice% == 4 call :networkAndPower
 if %userChoice% == 5 call :ramCleaner
 if %userChoice% == 6 call :fpsUnlocker
 if %userChoice% == 7 call :launchCS2
-if %userChoice% == 8 exit /b
+if %userChoice% == 8 (
+    cls
+    echo Thank you for using CS2 Ultimate Optimizer!
+    echo Have a great game!
+    echo.
+    pause
+    exit /b
+)
 
 goto start
 
@@ -136,7 +175,6 @@ exit /b
         )
     )
 
-    :: If not found, prompt user
     call :log "[!] Could NOT find CS2 executable automatically."
 
     echo.
@@ -350,6 +388,8 @@ exit /b
     echo [*] Launching CS2 with optimized options...
     start "" "%cs2Path%" %LAUNCH%
     call :log "[+] CS2 launched successfully"
+    echo.
+    echo If CS2 did not launch, check the log:
+    echo %logFile%
+    pause
 exit /b
-
-:: End of script
