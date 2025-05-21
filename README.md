@@ -5,7 +5,7 @@
 ✅ v1.1 - Major Bug Fixes & Usability Improvements (2025)
 This update resolves several critical issues that prevented the menu from appearing or caused crashes during startup. It also improves path detection and input handling across different Windows versions and languages.
 
-#🔧 Fixed
+🔧 Fixed
 
 - Fixed menu not showing : Replaced unreliable choice command with PowerShell-based input handler for better compatibility.
 - Fixed date/time log issue : Switched to PowerShell for consistent log file naming across all regional settings.
@@ -19,20 +19,20 @@ This update resolves several critical issues that prevented the menu from appear
 - PowerShell-based input : Allows clean key press menu navigation even on non-English systems where choice may fail.
 - Safer logging : Ensures log file is always created before any function tries to write to it.
   
-#🛠️ Improved
+🛠️ Improved
 
 - CS2 path detection logic : More robust search through Steam library folders.
 - Log file formatting : Uses yyyyMMdd_HHmm format for consistent log filenames.
 - User experience : Added clearer instructions during manual path input and launch phases.
 - Script stability : Prevents silent crashes and handles missing commands gracefully.
   
-#🧹 Code Quality
+🧹 Code Quality
 
 - Cleaned up duplicate code and improved flow control.
 - Enhanced comments and structure for easier maintenance.
 - Added timeout/pause feedback after invalid inputs.
   
-#🚀 Next Features (Planned)
+🚀 Next Features (Planned)
 
 - GUI version using HTA or PowerShell Forms
 - Option to restore original settings (firewall, power plan, etc.)
