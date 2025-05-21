@@ -25,11 +25,11 @@ This update resolves several critical issues that prevented the menu from appear
 - Enhanced comments and structure for easier maintenance.
 - Added timeout/pause feedback after invalid inputs.
 🚀 Next Features (Planned)
-GUI version using HTA or PowerShell Forms
-Option to restore original settings (firewall, power plan, etc.)
-Auto-check for updates
-Configurable launch options
-Discord/webhook integration for notifications
+- GUI version using HTA or PowerShell Forms
+- Option to restore original settings (firewall, power plan, etc.)
+- Auto-check for updates
+- Configurable launch options
+- Discord/webhook integration for notifications
 
 # v1.0.2 - 16/04/2025
 - Better structure & readability
