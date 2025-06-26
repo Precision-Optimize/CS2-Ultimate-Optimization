@@ -353,7 +353,7 @@ exit /b
     set "LAUNCH=-console -novid -fullscreen -high -threads 8 -heapsize 2097152"
 
     echo [*] Launching CS2 with optimized options...
-    start "" ""%cs2Path%"" %LAUNCH%
+    start "" "%cs2Path%" %LAUNCH%
     call :log "[+] CS2 launched successfully"
     echo.
     echo If CS2 did not launch, check the log:
