@@ -1,7 +1,5 @@
 # CS2 Ultimate Optimization Script - 2025
 
-https://badgen.net/github/license/Precision-Optimize/CS2-Ultimate-Optimization
-
 ## Changelogs
 
 ✅ v1.1 - Major Bug Fixes & Usability Improvements (2025)
