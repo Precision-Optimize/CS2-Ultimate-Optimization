@@ -41,7 +41,7 @@ echo Script made by Psycho006
 echo https://precisioncompany.xyz    
 echo.
 if defined cs2Path (
-    echo Detected CS2 Path: %cs2Path%
+    echo Detected CS2 Path: "%cs2Path%"
 ) else (
     echo [!] Could NOT detect CS2 path automatically.
     echo     You may need to enter it manually later.
@@ -60,7 +60,7 @@ echo ===============
 echo 1. Full Optimization + Launch CS2
 echo 2. Full Optimization Only
 echo 3. System Cleanup Only
-echo 4. Network & Power Settings Only
+echo 4. Network ^& Power Settings Only
 echo 5. RAM Cleaner
 echo 6. FPS Unlocker
 echo 7. Launch CS2 Directly
@@ -149,11 +149,11 @@ exit /b
     echo Please enter the full path to cs2.exe (e.g., D:\Games\CS2\game\bin\win64\cs2.exe)
     set /p "cs2Path=[>] Enter path: "
 
-    if exist "%cs2Path%" (
-        call :log "[+] User-provided CS2 path accepted: %cs2Path%"
+    if exist ""%cs2Path%"" (
+        call :log "[+] User-provided CS2 path accepted: "%cs2Path%""
         exit /b
     ) else (
-        call :log "[ERROR] Invalid CS2 path entered by user: %cs2Path%"
+        call :log "[ERROR] Invalid CS2 path entered by user: "%cs2Path%""
         echo [-] The path you entered does not exist or is invalid.
         echo     Make sure to enter the full path to 'cs2.exe'.
         timeout /t 5 >nul
