@@ -1,82 +1,158 @@
-# CS2 Ultimate Optimization Script - 2025
+# CS2 FPS Optimization Autoexec 🚀
 
-## Overview
-
-The **CS2 Ultimate Optimization Script** is designed to optimize your system for running **Counter-Strike 2 (CS2)** at peak performance. This script cleans up unnecessary files, configures system settings, and applies network and GPU optimizations to improve gameplay performance and reduce latency.
-
----
-
-## Support Us
-We offer premium PC and game optimization on our discord!
-
-Join discord https://dc.gg/precisionoptimize (soon will be up again)
-Our website https://precisionstudios.me
+High-performance **Counter-Strike 2 autoexec** focused on maximum FPS, low latency, and smooth gameplay.  
+Safe for matchmaking, FACEIT, and Premier.
 
 ---
 
-## Features
+## 📂 Installation
 
-1. **Terminate CS2 Process**: Ensures the game is closed before optimization begins.
-2. **Clean Temporary Files**: Deletes Windows temporary files, prefetch, and DNS cache to free up space and improve system efficiency.
-3. **NVIDIA Shader Cache Cleanup**: Removes unnecessary DX and Vulkan shader caches for a smoother experience.
-4. **Disable Unnecessary Services**: Turns off Xbox Game Bar, Game DVR, and Windows Update Medic Service.
-5. **High-Performance GPU Settings**: Ensures CS2 uses the high-performance GPU.
-6. **Network Optimizations**: Configures TCP/IP settings for lower latency and better connection stability.
-7. **Set High-Performance Power Plan**: Switches your system to a high-performance power plan.
-8. **Audio Latency Enhancements**: Reduces audio latency for better in-game sound responsiveness.
-   MORE FEATURES SOON, FEEL FREE TO CONTRIBUTE TO PROJECT.
+1. Navigate to:
 
----
+Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\
 
-## Requirements
 
-- Windows 10/11 (Administrator access required)
-- Counter-Strike 2 installed on your system
+2. Copy `autoexec.cfg` into the directory above.
+
+3. Open **Steam → CS2 → Properties → Launch Options**
+4. Add:
+
++exec autoexec -novid
+
+
 
 ---
 
-## Installation
+## ⚡ FPS Stability Recommendation
 
-1. Download the `CS2 Ultimate Optimization.exe` file from release.
-2. Save it in a directory of your choice.
+If you experience stutters or inconsistent frame times, limit FPS manually:
 
----
+| Monitor Refresh Rate | Recommended Setting |
+|----------------------|---------------------|
+| 144 Hz               | `fps_max 240`       |
+| 240 Hz               | `fps_max 300`       |
+| 360 Hz               | `fps_max 360`       |
 
-## Usage
-
-1. **Run the Script**:
-   - Right-click the `CS2_Ultimate_Optimization.bat` file and select **Run as Administrator**.
-   - Or download the `CS2 Ultimate Optimization.exe` file from release, you don't have to run as administrator by yourself.
-
-2. **Follow Instructions**:
-   - The script will guide you through each step of the optimization process.
-
-3. **Verify Changes**:
-   - After the script completes, your system will be optimized for CS2.
+Stable FPS is always better than unlimited FPS.
 
 ---
 
-## Notes
+## 🔧 Features
 
-- **Backup Files**: The script does not delete critical game or system files, but always ensure your important data is backed up before running optimization scripts.
-- **Post-Update Optimization**: After a major CS2 or system update, rerun the script to reapply optimizations.
-- **Re-enable Firewall**: The script disables the firewall temporarily for network optimization. If needed, re-enable it manually after completing the script.
-
----
-
-## Troubleshooting
-
-- If the script fails to run, ensure:
-  - You have administrator rights.
-  - Windows security software isn’t blocking batch scripts.
-
-- If issues persist, feel free to open a bug report or customize the script to suit your specific needs.
+- Optimized FPS and menu FPS limits
+- Stable network configuration
+- Raw mouse input enabled
+- Clean and minimal viewmodel
+- Reduced camera bob for better aim stability
+- Scroll wheel jump bind
+- Competitive-ready configuration
+- No cheat or exploit commands
 
 ---
 
-## License
+## 🎯 Pro Crosshair (Optional)
 
-This script is provided as-is and is free to use and modify. Use it at your own risk. The author is not responsible for any damage caused to your system.
-You can request an contribution.
+Example professional-style crosshair configuration:
+
+cl_crosshairsize 2
+cl_crosshairthickness 0.5
+cl_crosshairgap -3
+cl_crosshairdot 0
+cl_crosshair_drawoutline 0
+cl_crosshairalpha 255
+cl_crosshaircolor 1
+
+
+You can paste this directly into `autoexec.cfg` or execute it in console.
 
 ---
+
+## 🎮 Utility & QoL Binds (Optional)
+
+### Jumpthrow Bind
+
+alias "+jumpthrow" "+jump;-attack"
+alias "-jumpthrow" "-jump"
+bind "V" "+jumpthrow"
+
+
+### Clear Decals (Blood & Bullet Holes)
+
+bind "F" "r_cleardecals"
+
+
+### Quick Grenade Slots
+
+bind "4" "slot4" // Grenades
+bind "5" "slot5" // Bomb
+
+
+---
+
+## 🛡️ Anti-Cheat Safety
+
+✔ VAC  
+✔ FACEIT  
+✔ Premier  
+✔ Community Servers  
+
+No banned or experimental commands included.
+
+---
+
+## 🎛️ Customization
+
+You should customize these values inside `autoexec.cfg`:
+- `sensitivity`
+- `volume`
+- `fps_max`
+- Crosshair settings (optional)
+
+---
+
+## 📦 Project Structure
+
+cs2-fps-optimization/
+│
+├── cfg/
+│ └── autoexec.cfg
+│
+├── README.md
+├── CHANGELOG.md
+└── LICENSE
+
+
+---
+
+## 📝 CHANGELOG
+
+### v1.0.0 – Initial Release
+- FPS & latency optimized autoexec
+- Stable network configuration
+- Scroll wheel jump
+- Clean viewmodel
+- Anti-cheat safe
+
+---
+
+## 🚀 Release Notes
+
+**CS2 FPS Optimization Autoexec v1.0.0**
+
+- Competitive-ready configuration
+- Designed for high-refresh-rate monitors
+- Zero cheats or exploits
+- Plug & play setup
+
+---
+
+## ⭐ Contributing
+
+Pull requests are welcome.  
+If you have optimization ideas, feel free to open an issue or submit a PR.
+
+---
+
+## 📜 License
+
+MIT License
