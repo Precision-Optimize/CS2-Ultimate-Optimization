@@ -6,6 +6,42 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project follows semantic versioning.
 
 ---
+## [2.0.0] – 2026-01-06 - Big update
+
+### Added
+- Console-based frontend application
+- Modular `/scripts` engine architecture
+- SAFE / PERFORMANCE / BENCHMARK optimization modes
+- Automatic hardware detection (GPU / CPU / RAM)
+- GPU-specific optimizers for NVIDIA and AMD
+- Timer Resolution launcher with fallback logic
+- FPS benchmark runner using CS2 `-condebug`
+- Automatic FPS parser (AVG / MIN)
+- Full system revert functionality
+- First-run setup script (`install_all.bat`)
+- Logging system for runs and benchmarks
+
+### Technical
+- No PowerShell dependency
+- No persistent background services
+- No auto-close behavior
+- Fully portable (no installer required)
+
+### Safety
+- All tweaks reversible
+- Revert script restores Windows defaults
+- No driver-level modifications
+
+---
+
+## Planned
+- FPS history export (CSV)
+- EXE build with icon
+- Auto-update mechanism
+- Optional GUI frontend
+
+---
+
 ## [1.2.0] – 2025-12-29
 ### Added
 - One-click CS2 + Windows optimizer installer

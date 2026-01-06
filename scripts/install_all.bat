@@ -1,35 +1,44 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title CS2 One-Click Optimizer Installer
-color 0E
 
-echo ============================================
-echo  CS2 + WINDOWS ONE-CLICK OPTIMIZER
-echo ============================================
-echo.
+:: ==========================================
+:: INSTALL ALL / FIRST RUN SETUP
+:: Prepares system for CS2 optimizer usage
+:: Silent, safe, idempotent
+:: ==========================================
 
-:: Detect hardware
-call "%~dp0detect_hardware.bat"
+:: --- Ensure logs folder exists ---
+set "BASE=%~dp0"
+set "ROOT=%BASE%.."
+if not exist "%ROOT%\logs" mkdir "%ROOT%\logs" >nul 2>&1
 
-echo Detected:
-echo   CPU: !CPU_NAME!
-echo   Cores/Threads: !CPU_CORES!/!CPU_THREADS!
-echo   GPU: !GPU_NAME!  [Vendor: !GPU_VENDOR!]
-echo   RAM: !RAM_GB! GB
-echo.
+:: --- Basic command availability check ---
+where netsh >nul 2>&1 || exit /b
+where powercfg >nul 2>&1 || exit /b
+where reg >nul 2>&1 || exit /b
 
-pause
+:: --- Enable Game Mode (recommended baseline) ---
+reg add "HKCU\Software\Microsoft\GameBar" ^
+ /v AutoGameModeEnabled /t REG_DWORD /d 1 /f >nul 2>&1
 
-:: Core Windows optimizations
-call "%~dp0windows_fps_latency_optimizer.bat"
+reg add "HKCU\Software\Microsoft\GameBar" ^
+ /v UseNexusForGameBarEnabled /t REG_DWORD /d 0 /f >nul 2>&1
 
-:: GPU-specific (only safe service toggles)
-if /I "!GPU_VENDOR!"=="NVIDIA" call "%~dp0nvidia_optimizer.bat"
-if /I "!GPU_VENDOR!"=="AMD" call "%~dp0amd_optimizer.bat"
+:: --- Disable background app throttling ---
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" ^
+ /v GlobalUserDisabled /t REG_DWORD /d 1 /f >nul 2>&1
 
-echo.
-echo ============================================
-echo Done. Restart PC recommended.
-echo ============================================
-pause
-exit /b 0
+:: --- Ensure High Performance power scheme exists ---
+for /f "tokens=2 delims=()" %%G in ('powercfg -list ^| findstr /i "High performance"') do set "HPGUID=%%G"
+if defined HPGUID (
+  powercfg -setactive %HPGUID% >nul 2>&1
+)
+
+:: --- Optional: prepare Ultimate Performance (if supported) ---
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61 >nul 2>&1
+
+:: --- Final marker ---
+echo First run setup completed. > "%ROOT%\logs\install_all.log"
+
+endlocal
+exit /b

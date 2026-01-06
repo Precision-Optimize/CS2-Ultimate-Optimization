@@ -1,155 +1,124 @@
-# CS2 FPS Optimization Autoexec 🚀
+# CS2 Ultimate Optimizer
 
-High-performance **Counter-Strike 2 autoexec** focused on maximum FPS, low latency, and smooth gameplay.  
-Safe for matchmaking, FACEIT, and Premier.
+Console-based optimization tool for **Counter-Strike 2**, built with a modular engine architecture.
 
----
-
-## 📂 Installation
-
-1. Navigate to:
-
-Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\
-
-
-2. Copy `autoexec.cfg` into the directory above.
-
-3. Open **Steam → CS2 → Properties → Launch Options**
-4. Add:
-
-+exec autoexec -novid
-
-
-
----
-
-## ⚡ FPS Stability Recommendation
-
-If you experience stutters or inconsistent frame times, limit FPS manually:
-
-| Monitor Refresh Rate | Recommended Setting |
-|----------------------|---------------------|
-| 144 Hz               | `fps_max 240`       |
-| 240 Hz               | `fps_max 300`       |
-| 360 Hz               | `fps_max 360`       |
-
-Stable FPS is always better than unlimited FPS.
+This project is designed for **competitive players**, **benchmarking**, and **low-latency system tuning**, while keeping all tweaks **reversible and safe**.
 
 ---
 
 ## 🔧 Features
 
-- Optimized FPS and menu FPS limits
-- Stable network configuration
-- Raw mouse input enabled
-- Clean and minimal viewmodel
-- Reduced camera bob for better aim stability
-- Scroll wheel jump bind
-- Competitive-ready configuration
-- No cheat or exploit commands
+### Optimization Modes
+- **SAFE Mode**
+  - Daily-use optimizations
+  - Low latency without aggressive system changes
+
+- **PERFORMANCE Mode**
+  - Higher priority scheduling
+  - GPU-specific optimizations
+  - Reduced background interference
+
+- **BENCHMARK Mode**
+  - Maximum performance configuration
+  - Intended for short test sessions only
+  - Revert recommended after use
 
 ---
 
-## 🎯 Pro Crosshair (Optional)
-
-Example professional-style crosshair configuration:
-
-cl_crosshairsize 2
-cl_crosshairthickness 0.5
-cl_crosshairgap -3
-cl_crosshairdot 0
-cl_crosshair_drawoutline 0
-cl_crosshairalpha 255
-cl_crosshaircolor 1
-
-
-You can paste this directly into `autoexec.cfg` or execute it in console.
+### Engine Architecture
+- Frontend: `CS2_Optimizer.bat`
+- Backend: modular scripts inside `/scripts`
+- All system tweaks are isolated and reversible
 
 ---
 
-## 🎮 Utility & QoL Binds (Optional)
+### Hardware Detection
+- Automatic detection of:
+  - GPU vendor (NVIDIA / AMD / Intel)
+  - CPU core count
+  - Installed RAM
+- Applies GPU-specific optimizations when supported
 
-### Jumpthrow Bind
+---
 
-alias "+jumpthrow" "+jump;-attack"
-alias "-jumpthrow" "-jump"
-bind "V" "+jumpthrow"
+### FPS Benchmark (IMPORTANT)
+
+FPS benchmark **requires CS2 console output**.
+
+The optimizer automatically launches CS2 with:
+
+-condebug
+
+⚠️ **You MUST enable the CS2 developer console in-game:**
+
+Settings → Game → Enable Developer Console (~) → ON
 
 
-### Clear Decals (Blood & Bullet Holes)
+During the benchmark:
+1. Join a match or play offline
+2. Play for **at least 30–60 seconds**
+3. **Close CS2 completely**
+4. The optimizer will automatically parse FPS data
 
-bind "F" "r_cleardecals"
-
-
-### Quick Grenade Slots
-
-bind "4" "slot4" // Grenades
-bind "5" "slot5" // Bomb
+❗ No manual console commands are required, but the console **must be enabled**.
 
 
 ---
 
-## 🛡️ Anti-Cheat Safety
-
-✔ VAC  
-✔ FACEIT  
-✔ Premier  
-✔ Community Servers  
-
-No banned or experimental commands included.
+### Timer Resolution
+- Uses `SetTimerResolution.exe` if available
+- Safe fallback via Windows Multimedia scheduling
+- Activated automatically during CS2 launch / benchmark
 
 ---
 
-## 🎛️ Customization
-
-You should customize these values inside `autoexec.cfg`:
-- `sensitivity`
-- `volume`
-- `fps_max`
-- Crosshair settings (optional)
+### Revert System
+- Full revert option
+- Restores:
+  - Network stack
+  - Power plan
+  - GameDVR settings
+  - GPU overrides
+- Designed as a safe “panic button”
 
 ---
 
-## 📦 Project Structure
+## 📁 Project Structure
 
-cs2-fps-optimization/
-│
-├── cfg/
-│ └── autoexec.cfg
-│
+CS2-ULTIMATE-OPTIMIZATION/
+├── CS2_Optimizer.bat
+├── config.txt
+├── console.log
+├── /scripts
+│ ├── detect_hardware.bat
+│ ├── windows_fps_latency_optimizer.bat
+│ ├── timer_resolution_launcher.bat
+│ ├── nvidia_optimizer.bat
+│ ├── amd_optimizer.bat
+│ ├── fps_parser.bat
+│ ├── revert_optimizer.bat
+│ └── install_all.bat
+├── /logs
 ├── README.md
-├── CHANGELOG.md
-└── LICENSE
+└── CHANGELOG.md
 
 
 ---
 
-## 📝 CHANGELOG
+## ▶️ Usage
 
-### v1.0.0 – Initial Release
-- FPS & latency optimized autoexec
-- Stable network configuration
-- Scroll wheel jump
-- Clean viewmodel
-- Anti-cheat safe
+1. Run `CS2_Optimizer.bat` **as Administrator**
+2. Set CS2 executable path (first run only)
+3. Choose optimization mode or benchmark
+4. Use **Revert** option when needed
 
 ---
 
-## 🚀 Release Notes
+## ⚠️ Disclaimer
 
-**CS2 FPS Optimization Autoexec v1.0.0**
-
-- Competitive-ready configuration
-- Designed for high-refresh-rate monitors
-- Zero cheats or exploits
-- Plug & play setup
-
----
-
-## ⭐ Contributing
-
-Pull requests are welcome.  
-If you have optimization ideas, feel free to open an issue or submit a PR.
+- Use at your own risk
+- Benchmark mode should not be used for daily play
+- Always revert if unexpected behavior occurs
 
 ---
 

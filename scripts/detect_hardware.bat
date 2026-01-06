@@ -1,55 +1,42 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 
-:: ---- CPU ----
-for /f "skip=1 delims=" %%A in ('wmic cpu get Name ^| findstr /r /v "^$"') do (
-  set "CPU_NAME=%%A"
-  goto :cpu_done
+:: ==========================================
+:: DETECT HARDWARE - FINAL ENGINE VERSION
+:: Sets global vars:
+::   GPU_VENDOR=NVIDIA | AMD | INTEL | UNKNOWN
+::   CPU_CORES
+::   RAM_MB
+:: ==========================================
+
+:: ---------- GPU DETECTION ----------
+set "GPU_VENDOR=UNKNOWN"
+
+for /f "delims=" %%G in ('wmic path win32_VideoController get name ^| findstr /i "NVIDIA"') do set "GPU_VENDOR=NVIDIA"
+for /f "delims=" %%G in ('wmic path win32_VideoController get name ^| findstr /i "AMD Radeon"') do set "GPU_VENDOR=AMD"
+for /f "delims=" %%G in ('wmic path win32_VideoController get name ^| findstr /i "Radeon"') do set "GPU_VENDOR=AMD"
+for /f "delims=" %%G in ('wmic path win32_VideoController get name ^| findstr /i "Intel"') do (
+  if "%GPU_VENDOR%"=="UNKNOWN" set "GPU_VENDOR=INTEL"
 )
-:cpu_done
 
-for /f "skip=1 delims=" %%A in ('wmic cpu get NumberOfCores ^| findstr /r /v "^$"') do (
-  set "CPU_CORES=%%A"
-  goto :cores_done
+:: ---------- CPU CORES ----------
+set "CPU_CORES=%NUMBER_OF_PROCESSORS%"
+if not defined CPU_CORES set "CPU_CORES=4"
+
+:: ---------- RAM DETECTION (MB) ----------
+set "RAM_MB=0"
+for /f "tokens=2 delims==" %%R in ('wmic computersystem get TotalPhysicalMemory /value') do (
+  set /a RAM_MB=%%R/1024/1024
 )
-:cores_done
 
-for /f "skip=1 delims=" %%A in ('wmic cpu get NumberOfLogicalProcessors ^| findstr /r /v "^$"') do (
-  set "CPU_THREADS=%%A"
-  goto :threads_done
-)
-:threads_done
+:: ---------- FALLBACKS ----------
+if "%RAM_MB%"=="0" set "RAM_MB=8192"
 
-:: ---- GPU (first adapter) ----
-for /f "skip=1 delims=" %%A in ('wmic path win32_VideoController get Name ^| findstr /r /v "^$"') do (
-  set "GPU_NAME=%%A"
-  goto :gpu_done
-)
-:gpu_done
-
-set "GPU_VENDOR=OTHER"
-echo !GPU_NAME! | find /I "NVIDIA" >nul && set "GPU_VENDOR=NVIDIA"
-echo !GPU_NAME! | find /I "AMD" >nul && set "GPU_VENDOR=AMD"
-echo !GPU_NAME! | find /I "Radeon" >nul && set "GPU_VENDOR=AMD"
-echo !GPU_NAME! | find /I "Intel" >nul && set "GPU_VENDOR=INTEL"
-
-:: ---- RAM (GB) ----
-for /f "skip=1 delims=" %%A in ('wmic computersystem get TotalPhysicalMemory ^| findstr /r /v "^$"') do (
-  set "RAM_BYTES=%%A"
-  goto :ram_done
-)
-:ram_done
-
-:: Convert RAM to approx GB (integer)
-set /a RAM_GB=!RAM_BYTES!/1024/1024/1024
-
-:: ---- Export to environment for caller ----
+:: ---------- EXPORT VARIABLES ----------
 endlocal & (
-  set "CPU_NAME=%CPU_NAME%"
-  set "CPU_CORES=%CPU_CORES%"
-  set "CPU_THREADS=%CPU_THREADS%"
-  set "GPU_NAME=%GPU_NAME%"
   set "GPU_VENDOR=%GPU_VENDOR%"
-  set "RAM_GB=%RAM_GB%"
+  set "CPU_CORES=%CPU_CORES%"
+  set "RAM_MB=%RAM_MB%"
 )
-exit /b 0
+
+exit /b

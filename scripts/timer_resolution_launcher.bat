@@ -1,25 +1,22 @@
 @echo off
-title CS2 Timer Resolution Launcher
-color 0B
+setlocal EnableExtensions EnableDelayedExpansion
 
-echo ============================================
-echo  CS2 TIMER RESOLUTION LAUNCHER
-echo ============================================
-echo.
-echo This will temporarily improve input latency.
-echo.
+:: ==========================================
+:: TIMER RESOLUTION LAUNCHER
+:: Uses SetTimerResolution.exe if present
+:: Silent, portable, safe
+:: ==========================================
 
-:: Launch TimerResolution if available
-if exist TimerResolution.exe (
-    start "" TimerResolution.exe --resolution 5000
+set "BASE=%~dp0"
+
+:: Prefer external tool if available
+if exist "%BASE%SetTimerResolution.exe" (
+    start "" "%BASE%SetTimerResolution.exe" --resolution 0.5 --no-console
 ) else (
-    echo TimerResolution.exe not found!
+    :: Fallback: Windows multimedia profile (safe)
+    reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" ^
+     /v SystemResponsiveness /t REG_DWORD /d 0 /f >nul 2>&1
 )
 
-:: Launch CS2
-start steam://rungameid/730
-
-echo.
-echo Timer active while CS2 is running.
-pause
-exit
+endlocal
+exit /b
