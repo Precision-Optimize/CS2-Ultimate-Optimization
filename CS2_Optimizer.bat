@@ -66,6 +66,7 @@ cls
 echo =========================================================
 echo            CS2 ULTIMATE OPTIMIZER (ENGINE EDITION)
 echo =========================================================
+echo CS2 Ultimate Optimizer v2.0.1
 echo GPU: %GPU_VENDOR%  ^|  CPU Cores: %CPU_CORES%  ^|  RAM: %RAM_MB% MB
 if defined cs2Path (
   echo CS2 Path: %cs2Path%
@@ -80,6 +81,7 @@ echo 4. BENCHMARK Optimize
 echo 5. Run FPS Benchmark
 echo 6. Launch CS2 (Optimized)
 echo 7. Revert ALL Tweaks
+echo S. System Status
 echo X. Exit
 echo ---------------------------------------------------------
 choice /c 1234567X /n /m "Choose option: "
@@ -234,6 +236,28 @@ call :log "Launching CS2"
 start "" "%cs2Path%" -novid -fullscreen -high +fps_max 0
 exit /b
 
+:: ======================================================
+:: STATUS
+:: ======================================================
+:status
+cls
+echo ===============================
+echo SYSTEM STATUS
+echo ===============================
+echo GPU: %GPU_VENDOR%
+echo CPU Cores: %CPU_CORES%
+echo RAM: %RAM_MB% MB
+if defined cs2Path (
+  echo CS2 Path: %cs2Path%
+) else (
+  echo CS2 Path: NOT SET
+)
+if exist "%LOGS%\fps_benchmark_result.txt" (
+  echo Last Benchmark:
+  type "%LOGS%\fps_benchmark_result.txt"
+)
+pause
+goto menu
 :: ======================================================
 :: REVERT
 :: ======================================================

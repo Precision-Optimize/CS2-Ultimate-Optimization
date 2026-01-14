@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project follows semantic versioning.
 
+## [2.0.1] – 2026-01-14 – Stability & UX Update
+- Added system status screen
+- Improved FPS benchmark validation
+- Added CS2 path pre-run checks
+- Minor UX improvements and clearer warnings
+
 ---
 ## [2.0.0] – 2026-01-06 - Big update
 
