@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project follows semantic versioning.
 
+## [2.0.2] – 2026-01-25 – Small FIX
+- Fixed batch file not opening
+
 ## [2.0.1] – 2026-01-14 – Stability & UX Update
 - Added system status screen
 - Improved FPS benchmark validation
