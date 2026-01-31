@@ -124,4 +124,4 @@ CS2-ULTIMATE-OPTIMIZATION/
 
 ## 📜 License
 
-MIT License
+[MIT License](https://badgen.net/github/license/Precision-Optimize/CS2-Ultimate-Optimization)
