@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project follows semantic versioning.
 
+## [2.1] - 2026.02.24 - PRO Edition
+
+### Added
+- Dual Mode System:
+  - Stable Gaming Mode (safe optimizations)
+  - Aggressive FPS Mode (maximum performance tweaks)
+- Advanced network optimization (RSS, DCA, Chimney settings)
+- High precision timer tweaks (bcdedit configuration)
+- Background service trimming (SysMain, DiagTrack)
+- NVIDIA low latency registry tweak
+- Memory cleanup routine
+- Per-session logging system
+- Improved menu structure
+- Improved admin elevation method (stable UAC handler)
+- Safer execution flow (no label fall-through issues)
+
+### Improved
+- Full menu loop stability
+- Better error suppression for Windows 11
+- More consistent priority setting for cs2.exe
+- Cleaner service control handling
+- Reduced risk of script crash on modern Windows builds
+
+### Fixed
+- Immediate close on admin launch
+- WMIC-related crashes on Windows 11
+- Label execution flow bugs
+- Unstable PowerShell-based elevation
+
 ## [2.0.1] – 2026-01-14 – Stability & UX Update
 - Added system status screen
 - Improved FPS benchmark validation
