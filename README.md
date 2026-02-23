@@ -1,4 +1,5 @@
 # CS2 Ultimate Optimizer
+![GitHub Release](https://img.shields.io/github/v/release/Precision-Optimize/CS2-Ultimate-Optimization)
 
 Console-based optimization tool for **Counter-Strike 2**, built with a modular engine architecture.
 
@@ -124,4 +125,4 @@ CS2-ULTIMATE-OPTIMIZATION/
 
 ## 📜 License
 
-MIT License
+[MIT License](https://badgen.net/github/license/Precision-Optimize/CS2-Ultimate-Optimization)
